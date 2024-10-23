@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "CreateStudent";
+}
+
+<h3>Ведомость успеваемости</h3>
+<table>
+    <tr><td><p>Имя студента</p></td></tr>
+    <tr><td><p>Фамилия студента</p></td></tr>
+    <tr><td><p>Группа</p></td></tr>
+    <tr><td><p>Предмет</p></td></tr>
+    <tr><td><p>Оценка</p></td></tr>
+    @foreach (var c in ViewBag.Students)
+    {
+    <tr>
+    <td><p>@c.FirstName</p></td>
+    <td><p>@c.LastName</p></td>
+    <td><p>@c.Group</p></td>
+    <td><p>@c.Lasson</p></td>
+    <td><p>@c.Score</p></td>
+    </tr>
+    }
+</table>
+
+<h3>Форма внесения данных в ведомость</h3>
+<form method="post" action="">
+    <table>
+        <tr><td><p>Введите имя студента</p></td><td><input type="text" name="FirstName" /></td></tr>
+        <tr><td><p>Введите фамилию студента</p></td><td><input type="text" name="LastName" /></td></tr>
+        <tr><td><p>Выбирите предмет</p></td>
+            <td>
+                <select name="LessonName">
+                    @foreach (var cr in ViewBag.Students){
+                        <option>@cr.Lessons</option>
+                    }
+                </select>
+            </td>
+            </tr>
+            <tr><td><input type="submit" value="Добавить" /></td><td></td></tr>
+    </table>
+</form>

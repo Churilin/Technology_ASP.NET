@@ -1,0 +1,28 @@
+﻿@model MvcStudentApp.Models.Lesson
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы точно хотите удалить запись?</h3>
+<div>
+    <h4>Предмет</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="LessonId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <li class="nav-item"><a class="nav-link text-dark" @Html.ActionLink("Вернуться к списку", "Index")</a></li>
+    </form>
+</div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MvcStudentApp.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Информация о студентах</h1>
+
+<p>
+    <li class="nav-item"><a class="nav-link text-dark"@Html.ActionLink("Добавить студента", "Create")</a></li>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lesson)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lesson.Name)
+            </td>
+            <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.StudentId }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.StudentId }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.StudentId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MvcStudentApp.Models.Student>
+@{
+    ViewData["Title"] = "Export";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Экспорт студентов в текстовый файл</h2>
+
+<p>Файл с данными студентов был успешно создан. Вы можете <a href="/students.txt">скачать его здесь</a>.</p>
+
+<li class="nav-item"><a class="nav-link text-dark" @Html.ActionLink("Вернуться к списку", "Index")</a></li>

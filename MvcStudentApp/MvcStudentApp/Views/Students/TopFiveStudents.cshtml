@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MvcStudentApp.Models.Student>
+
+@{
+    ViewData["Title"] = "TopFiveStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Пять лучших студентов</h1>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Предмет</th>
+            <th>Оценка</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Lesson.Name</td>
+                <td>@student.Score</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<li class="nav-item"><a class="nav-link text-dark" @Html.ActionLink("Вернуться к списку", "Index")</a></li>

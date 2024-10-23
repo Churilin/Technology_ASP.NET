@@ -1,0 +1,25 @@
+﻿@model MvcStudentApp.Models.Lesson
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Подробнее</h1>
+
+<div>
+    <h4>Предмет</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.LessonId">Изменить</a> |
+    <li class="nav-item"><a class="nav-link text-dark" @Html.ActionLink("Вернуться к списку", "Index")</a></li>
+</div>
